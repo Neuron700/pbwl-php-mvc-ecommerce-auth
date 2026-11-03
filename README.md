@@ -23,6 +23,19 @@ Proyek ini melanjutkan pola **MVC buatan sendiri** dari project sebelumnya, lalu
 
 Autentikasi pada versi awal memakai fungsi SQL `PASSWORD()` yang **sudah dihapus** di MySQL 8/MariaDB modern sehingga login gagal. Repo ini menggantinya dengan mekanisme modern **`password_hash()` / `password_verify()` (bcrypt)**, menambah proteksi ke semua controller sensitif, dan melengkapi CRUD Produk.
 
+## 📸 Tampilan
+
+<table>
+  <tr>
+    <td width="50%"><img src="docs/screenshots/01-login.png" alt="Halaman Login"><br><sub>Halaman Login</sub></td>
+    <td width="50%"><img src="docs/screenshots/02-dashboard.png" alt="Dashboard"><br><sub>Dashboard (setelah login)</sub></td>
+  </tr>
+  <tr>
+    <td width="50%"><img src="docs/screenshots/03-produk.png" alt="Kelola Produk"><br><sub>Kelola Produk (terproteksi)</sub></td>
+    <td width="50%"><img src="docs/screenshots/04-kategori.png" alt="Kelola Kategori"><br><sub>Kelola Kategori (terproteksi)</sub></td>
+  </tr>
+</table>
+
 ## ✨ Fitur
 
 ### 🔐 Autentikasi
