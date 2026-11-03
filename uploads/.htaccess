@@ -1,0 +1,5 @@
+# Jangan eksekusi skrip di dalam folder upload
+php_flag engine off
+RemoveHandler .php .phtml .php3 .php4 .php5 .php7 .php8 .phar
+RemoveType .php .phtml .php3 .php4 .php5 .php7 .php8 .phar
+Options -Indexes

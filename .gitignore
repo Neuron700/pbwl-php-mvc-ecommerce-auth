@@ -1,0 +1,21 @@
+# .gitignore — PHP MVC + Auth (Project 6)
+
+# Dependensi Composer (pasang dengan: composer install)
+/vendor/
+
+# File unggahan pengguna (jangan di-commit)
+/uploads/produk/*
+!/uploads/produk/.gitkeep
+
+# Sistem operasi
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor
+.vscode/
+.idea/
+
+# Sampah
+*.log
+*.tmp
