@@ -16,11 +16,10 @@ class Controller
 		require_once ROOT . "layouts/dashboard.php";
 	}
 
+	// Proyek ini TIDAK memakai autentikasi — halaman terbuka untuk semua
 	public static function cekLogin()
 	{
-		if (!isset($_SESSION['login']) || $_SESSION['login'] != true) {
-			header('location:' . URL);
-			exit();
-		}
+		// Sengaja kosong: tidak perlu login untuk mengakses halaman mana pun
+		return;
 	}
 }

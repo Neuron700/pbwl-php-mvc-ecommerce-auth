@@ -28,10 +28,10 @@ if (!function_exists('e')) {
 			<div class="sidebar-heading text-white">ECOMMERCE</div>
 
 			<div class="list-group list-group-flush">
-				<a href="<?php echo URL; ?>/dashboard" class="list-group-item list-group-item-action">Dashboard</a>
-				<a href="<?php echo URL; ?>/kategori" class="list-group-item list-group-item-action">Kategori</a>
-				<a href="<?php echo URL; ?>/produk" class="list-group-item list-group-item-action">Produk</a>
-				<a href="<?php echo URL; ?>/dashboard/logout" class="list-group-item list-group-item-action">Logout</a>
+				<a href="<?php echo URL; ?>/dashboard" class="list-group-item list-group-item-action"><i class="bi bi-speedometer2 me-2"></i>Dashboard</a>
+				<a href="<?php echo URL; ?>/kategori" class="list-group-item list-group-item-action"><i class="bi bi-tags me-2"></i>Kategori</a>
+				<a href="<?php echo URL; ?>/produk" class="list-group-item list-group-item-action"><i class="bi bi-box-seam me-2"></i>Produk</a>
+				<a href="<?php echo URL; ?>/penjualan" class="list-group-item list-group-item-action"><i class="bi bi-receipt me-2"></i>Penjualan</a>
 			</div>
 		</div>
 		<div id="page-content-wrapper">

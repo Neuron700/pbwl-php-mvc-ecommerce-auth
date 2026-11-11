@@ -36,6 +36,19 @@ CREATE TABLE tb_produk (
 	FOREIGN KEY(produk_id_user) REFERENCES tb_users(user_id) ON UPDATE CASCADE ON DELETE RESTRICT
 );
 
+CREATE TABLE tb_penjualan (
+	penjualan_id INT(11) NOT NULL AUTO_INCREMENT,
+	tgl_penjualan DATE NOT NULL,
+	produk_id INT(11) NOT NULL,
+	qty INT(11) NOT NULL DEFAULT 1,
+	harga_satuan BIGINT(20) DEFAULT '0',
+	total BIGINT(20) DEFAULT '0',
+	created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+	PRIMARY KEY(penjualan_id),
+	KEY produk_id (produk_id),
+	FOREIGN KEY(produk_id) REFERENCES tb_produk(produk_id) ON UPDATE CASCADE ON DELETE RESTRICT
+);
+
 -- Akun admin praktikum: admin@mail.com / admin123 (bcrypt, diverifikasi dengan password_verify())
 INSERT INTO `tb_users` (`user_id`, `user_email`, `user_password`, `user_nama`, `created_at`, `updated_at`) VALUES
 (1, 'admin@mail.com', '$2y$10$tC5/G4rYZsQzhr/RCvf18ORb1FmESplYSzPOzU5jk.n8vNqi0v9Ma', 'Administrator', NOW(), NULL);
