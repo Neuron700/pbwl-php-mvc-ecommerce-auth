@@ -31,18 +31,48 @@ class Kategori extends Controller
 	public function simpan()
 	{
 		$this->model->simpan();
+		$this->flash('success', 'Kategori berhasil ditambahkan.');
 		header('location:' . URL . '/kategori');
+		exit;
 	}
 
 	public function edit($id)
 	{
 		$data['row'] = $this->model->edit($id);
+
+		if (!$data['row']) {
+			$this->flash('danger', 'Kategori tidak ditemukan.');
+			header('location:' . URL . '/kategori');
+			exit;
+		}
+
 		$this->dashboard('kategori/edit', $data);
 	}
 
 	public function update()
 	{
 		$this->model->update();
+		$this->flash('success', 'Kategori berhasil diperbarui.');
 		header('location:' . URL . '/kategori');
+		exit;
+	}
+
+	public function hapus($id)
+	{
+		try {
+			$this->model->hapus($id);
+			$this->flash('success', 'Kategori berhasil dihapus.');
+		} catch (\PDOException $e) {
+			// FK RESTRICT: kategori masih dipakai produk
+			$this->flash('danger', 'Kategori tidak dapat dihapus karena masih digunakan produk.');
+		}
+
+		header('location:' . URL . '/kategori');
+		exit;
+	}
+
+	private function flash(string $type, string $message): void
+	{
+		$_SESSION['flash'] = ['type' => $type, 'message' => $message];
 	}
 }

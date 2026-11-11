@@ -44,11 +44,19 @@ class Kategori extends Model
             $kat_keterangan = $_POST['kat_keterangan'];
             $kat_id = $_POST['kat_id'];
 
-            $sql = "UPDATE tb_kategori SET kat_nama=:kat_nama, kat_keterangan=:kat_keterangan WHERE kat_id=:kat_id";
+            $sql = "UPDATE tb_kategori SET kat_nama=:kat_nama, kat_keterangan=:kat_keterangan, updated_at=NOW() WHERE kat_id=:kat_id";
             $stmt = $this->db->prepare($sql);
             $stmt->bindParam(":kat_nama", $kat_nama);
             $stmt->bindParam(":kat_keterangan", $kat_keterangan);
             $stmt->bindParam(":kat_id", $kat_id);
+            $stmt->execute();
+      }
+
+      public function hapus($id)
+      {
+            $sql = "DELETE FROM tb_kategori WHERE kat_id=:kat_id";
+            $stmt = $this->db->prepare($sql);
+            $stmt->bindValue(':kat_id', (int) $id, \PDO::PARAM_INT);
             $stmt->execute();
       }
 }
